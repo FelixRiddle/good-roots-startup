@@ -1,0 +1,29 @@
+{
+  "name": "good-roots-startup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "ts-node src/cmd/index.ts",
+    "test": "ts-node src/cmd/index.ts --test",
+    "build": "tsup"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/argparse": "^2.0.16",
+    "argparse": "^2.0.1",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "felixriddle.location-selection": "^1.0.5"
+  }
+}
