@@ -16,10 +16,14 @@ export default class DotDesktop {
     
     /**
      * 
-     * @param cmd 
+     * fileName:
+     * File name without the '.dotdesktop'
+     * 
+     * cmd:
+     * Command to run, this is for the 'Exec' field
      */
     constructor(fileName: string, cmd: string) {
-        this.fileName = fileName;
+        this.fileName = `${fileName}.desktop`;
         this.cmd = cmd;
     }
     
@@ -28,6 +32,7 @@ export default class DotDesktop {
      */
     setType(desktopEntryType: DesktopEntryType) {
         this.desktopEntryType = desktopEntryType;
+        return this;
     }
     
     /**
@@ -35,6 +40,7 @@ export default class DotDesktop {
      */
     setName(name: string) {
         this.name = name;
+        return this;
     }
     
     /**
@@ -42,6 +48,7 @@ export default class DotDesktop {
      */
     setCmd(cmd: string) {
         this.cmd = cmd;
+        return this;
     }
     
     /**
@@ -64,6 +71,7 @@ export default class DotDesktop {
     saveAt(folderPath: string) {
         // Case of failing create the file why not
         fs.writeFileSync(`${folderPath}/${this.fileName}`, this.get());
+        return this;
     }
     
     /**
@@ -76,5 +84,6 @@ export default class DotDesktop {
     saveAtStartup() {
         const userFolder = `${homedir()}/.config/autostart`;
         fs.writeFileSync(`${userFolder}/${this.fileName}`, this.get());
+        return this;
     }
 }
